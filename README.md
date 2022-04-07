@@ -83,3 +83,11 @@ There is an acceptance criteria that envolves
 This project can get running using cloud native principles, so it is necessary to install docker and run
 
 `docker compose run`
+
+With an existing DB I used
+
+`Scaffold-DbContext "Server=localhost;Port=1060;Database=sicpa;User=sicpa_developer;Password=sicpa;" -Provider Pomelo.EntityFrameworkCore.MySql -OutputDir Models/Repositories -ContextDir Models/Contexts -Context AppointmentServiceContext -Force -Verbose`
+
+
+# Improvements and Suggestions
+The database model should have an audit table instead of repeating information over each table

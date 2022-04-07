@@ -1,0 +1,17 @@
+﻿# Use root/example as user/password credentials
+# port HostPort:CotainerPort
+version: '3.9'
+
+services:
+  mysql:
+    image: mariadb
+    restart: always
+    ports:
+      - 1060:3306
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=S3cret
+      - MYSQL_PASSWORD=An0thrS3crt
+      - MYSQL_USER=sicpa_user
+      - MYSQL_DATABASE=sicpa_db
