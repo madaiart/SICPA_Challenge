@@ -86,7 +86,7 @@ This project can get running using cloud native principles, so it is necessary t
 
 With an existing DB I used
 
-`Scaffold-DbContext "Server=localhost;Port=1060;Database=sicpa;User=sicpa_developer;Password=sicpa;" -Provider Pomelo.EntityFrameworkCore.MySql -OutputDir Models/Repositories -ContextDir Models/Contexts -Context AppointmentServiceContext -Force -Verbose`
+`Scaffold-DbContext "Server=localhost;Port=1060;Database=sicpa;User=sicpa_developer;Password=sicpa;" -Provider Pomelo.EntityFrameworkCore.MySql -OutputDir Models/Repositories -ContextDir Models/Contexts -Context SICPAContext -Force -Verbose`
 
 
 # Improvements and Suggestions
