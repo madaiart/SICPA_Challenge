@@ -16,11 +16,11 @@ CREATE SCHEMA IF NOT EXISTS `sicpa` DEFAULT CHARACTER SET utf8 ;
 USE `sicpa` ;
 
 -- -----------------------------------------------------
--- Table `sicpa`.`enterprices`
+-- Table `sicpa`.`enterprises`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `sicpa`.`enterprices` ;
+DROP TABLE IF EXISTS `sicpa`.`enterprises` ;
 
-CREATE TABLE IF NOT EXISTS `sicpa`.`enterprices` (
+CREATE TABLE IF NOT EXISTS `sicpa`.`enterprises` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `created_by` VARCHAR(60) NOT NULL,
   `created_date` DATETIME NOT NULL,
@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `sicpa`.`departments` (
   `phone` VARCHAR(10) NULL,
   `id_enterprises` INT NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_departments_enterprices`
+  CONSTRAINT `fk_departments_enterprises`
     FOREIGN KEY (`id_enterprises`)
-    REFERENCES `sicpa`.`enterprices` (`id`)
+    REFERENCES `sicpa`.`enterprises` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
