@@ -1,6 +1,6 @@
 // Angular Modules
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class Constants {

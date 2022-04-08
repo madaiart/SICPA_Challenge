@@ -1,43 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { environment } from '@env/environment';
+import { CoreModule } from '@core';
+import { SharedModule } from '@shared';
+import { MasterModule } from './master/master.module';
+import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { EnterprisesComponent } from './enterprises/enterprises.component';
-import { DepartmentComponent } from './departments/departments.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { CreateEnterpriseModalComponent } from './enterprises/modal/create-enterprise-modal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AppRoutingModule } from './app-routing.module';
+// import { ModalContainerComponent } from './modal-container/modal-container.component';
+// import { ModalFormComponent } from './modal-form/modal-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    EmployeesComponent,
-    EnterprisesComponent,
-    DepartmentComponent,
-    CreateEnterpriseModalComponent 
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
+    BrowserModule,
+    ServiceWorkerModule.register('./ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },        
-        {path: 'enterprises', component: EnterprisesComponent},
-        {path: 'departments', component: DepartmentComponent},
-        {path: 'employees', component: EmployeesComponent},
-      //{ path: 'fetch-data', component: FetchDataComponent },
-    ]),
-    BrowserAnimationsModule
+    HttpClientModule,
+    TranslateModule.forRoot(),
+    NgbModule,
+    CoreModule,
+    SharedModule,
+    ShellModule,
+    MasterModule,
+    AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
+  declarations: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
