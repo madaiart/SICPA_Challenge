@@ -7,6 +7,7 @@ namespace DAL.DTO
 {
     public class DepartmentsDTO
     {
+        public int Id { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
@@ -21,6 +22,7 @@ namespace DAL.DTO
         {
             return new DepartmentsDTO()
             {
+                Id = departments.Id,
                 CreatedDate = departments.CreatedDate,
                 ModifiedDate = departments.ModifiedDate,
                 Status = departments.Status,

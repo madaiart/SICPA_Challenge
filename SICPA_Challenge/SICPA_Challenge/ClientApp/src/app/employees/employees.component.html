@@ -1,0 +1,53 @@
+<h1 id="tableLabel">Employees</h1>
+<hr />
+<p *ngIf="!employees"><em>Loading...</em></p>
+
+<div class="row">
+  <div class="col">
+    <label>This is the complete list of employees</label>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary">Add employee</button>
+  </div>
+</div>
+<br />
+<table
+  class="table table-striped"
+  aria-labelledby="tableLabel"
+  *ngIf="employees"
+>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>id</th>
+      <th>created By</th>
+      <th>created Date</th>
+      <th>modified Bby</th>
+      <th>modified Date</th>
+      <th>status</th>
+      <th>age</th>
+      <th>email</th>
+      <th>name</th>
+      <th>position</th>
+      <th>surname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>Update</td>
+      <td>Delete</td>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.createdBy }}</td>
+      <td>{{ employee.createdDate }}</td>
+      <td>{{ employee.modifiedBy }}</td>
+      <td>{{ employee.modifiedDate }}</td>
+      <td>{{ employee.status }}</td>
+      <td>{{ employee.age }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.position }}</td>
+      <td>{{ employee.surname }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -5,6 +5,7 @@ namespace DAL.DTO
 {
     public class EmployeesDTO
     {
+        public int Id { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
@@ -20,6 +21,7 @@ namespace DAL.DTO
         {
             return new EmployeesDTO()
             {
+                Id = employees.Id,  
                 CreatedBy = employees.CreatedBy,
                 CreatedDate = employees.CreatedDate,
                 ModifiedBy = employees.ModifiedBy,

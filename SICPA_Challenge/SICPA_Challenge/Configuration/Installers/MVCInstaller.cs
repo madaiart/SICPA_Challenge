@@ -17,6 +17,8 @@ namespace SICPA_Challenge.Configuration.Installers
 {
     public class MVCInstaller : IInstaller
     {
+        readonly string AllowSpecificOrigins = "_SICPAOrigins";
+
         public void InstallerServices(IServiceCollection services, IConfiguration Configuration)
         {
             // DataBase
@@ -31,6 +33,14 @@ namespace SICPA_Challenge.Configuration.Installers
             //     );
 
             services.AddDbContext<SICPAContext>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowSpecificOrigins, policy =>
+                {
+                    policy.WithOrigins("http://localhost", "https://localhost");
+                });
+            });
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

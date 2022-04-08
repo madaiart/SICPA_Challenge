@@ -4,10 +4,12 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>SICPA_Challenge</ActiveDebugProfile>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
   </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup />
   <ItemGroup>
-    <TypeScriptCompile Update="ClientApp\src\models\sicpa\enterprises.ts">
+    <TypeScriptCompile Update="ClientApp\src\app\models\sicpa\enterprises.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>
