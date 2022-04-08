@@ -7,7 +7,7 @@
     <label>This is the complete list of enterprices</label>
   </div>
   <div class="col">
-    <button class="btn btn-primary">Add enterprise</button>
+    <button class="btn btn-primary" (click)="openModal('create-enterprise')">Add enterprise</button>
   </div>
 </div>
 <br />
@@ -47,3 +47,6 @@
     </tr>
   </tbody>
 </table>
+
+
+<create-enterprise-modal id="create-enterprise"></create-enterprise-modal>

@@ -2,8 +2,16 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { env } from "process";
+
 export const environment = {
-  production: false
+  production: false,
+  version: env.npm_package_version + '-dev',
+  serverUrl: '/api',
+  defaultLanguage: 'en-US',
+  supportedLanguages: ['en-US'],
+  Api_Endpoint: 'https://localhost:44347/api/',
+  Api_Mock_Endpoint: 'https://localhost:44347/api/',
 };
 
 /*

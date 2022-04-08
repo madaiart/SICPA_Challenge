@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { EnterprisesComponent } from './enterprises/enterprises.component';
 import { DepartmentComponent } from './departments/departments.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { CreateEnterpriseModalComponent } from './enterprises/modal/create-enterprise-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { EmployeesComponent } from './employees/employees.component';
     HomeComponent,
     EmployeesComponent,
     EnterprisesComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    CreateEnterpriseModalComponent 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +34,8 @@ import { EmployeesComponent } from './employees/employees.component';
         {path: 'departments', component: DepartmentComponent},
         {path: 'employees', component: EmployeesComponent},
       //{ path: 'fetch-data', component: FetchDataComponent },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
