@@ -9,13 +9,13 @@ using DAL.Models.Repositories;
 
 namespace DAL.Models.Contexts
 {
-    public partial class AppointmentServiceContext : DbContext
+    public partial class SICPAContext : DbContext
     {
-        public AppointmentServiceContext()
+        public SICPAContext()
         {
         }
 
-        public AppointmentServiceContext(DbContextOptions<AppointmentServiceContext> options)
+        public SICPAContext(DbContextOptions<SICPAContext> options)
             : base(options)
         {
         }
@@ -23,7 +23,7 @@ namespace DAL.Models.Contexts
         public virtual DbSet<Departments> Departments { get; set; }
         public virtual DbSet<DepartmentsEmployees> DepartmentsEmployees { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
-        public virtual DbSet<Enterprices> Enterprices { get; set; }
+        public virtual DbSet<Enterprises> Enterprises { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -186,6 +186,12 @@ namespace DAL.Models.Contexts
                     .HasColumnName("created_date")
                     .HasColumnType("datetime");
 
+                entity.Property(e => e.Email)
+                    .HasColumnName("email")
+                    .HasColumnType("varchar(60)")
+                    .HasCharSet("utf8mb3")
+                    .HasCollation("utf8mb3_general_ci");
+
                 entity.Property(e => e.ModifiedBy)
                     .IsRequired()
                     .HasColumnName("modified_by")
@@ -220,9 +226,9 @@ namespace DAL.Models.Contexts
                     .HasCollation("utf8mb3_general_ci");
             });
 
-            modelBuilder.Entity<Enterprices>(entity =>
+            modelBuilder.Entity<Enterprises>(entity =>
             {
-                entity.ToTable("enterprices");
+                entity.ToTable("enterprises");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -264,7 +270,7 @@ namespace DAL.Models.Contexts
 
                 entity.Property(e => e.Phone)
                     .HasColumnName("phone")
-                    .HasColumnType("varchar(10)")
+                    .HasColumnType("varchar(15)")
                     .HasCharSet("utf8mb3")
                     .HasCollation("utf8mb3_general_ci");
 

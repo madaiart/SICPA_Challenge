@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DTO;
+using System;
 using System.Collections.Generic;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -25,7 +26,23 @@ namespace DAL.Models.Repositories
         public string Phone { get; set; }
         public int IdEnterprises { get; set; }
 
-        public virtual Enterprices IdEnterprisesNavigation { get; set; }
+        public virtual Enterprises IdEnterprisesNavigation { get; set; }
         public virtual ICollection<DepartmentsEmployees> DepartmentsEmployees { get; set; }
+
+        public static Departments toDepartments(DepartmentsDTO department)
+        {
+            return new Departments()
+            {
+                CreatedBy = department.CreatedBy,
+                CreatedDate = department.CreatedDate,
+                ModifiedBy = department.ModifiedBy,
+                ModifiedDate = department.ModifiedDate,
+                Status = department.Status,
+                Description = department.Description,
+                Name = department.Name,
+                Phone = department.Phone,
+                IdEnterprises = department.IdEnterprises,
+            };
+        }
     }
 }

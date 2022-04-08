@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DAL.DTO;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -7,9 +8,9 @@ using System.Collections.Generic;
 
 namespace DAL.Models.Repositories
 {
-    public partial class Enterprices
+    public partial class Enterprises
     {
-        public Enterprices()
+        public Enterprises()
         {
             Departments = new HashSet<Departments>();
         }
@@ -25,5 +26,20 @@ namespace DAL.Models.Repositories
         public string Phone { get; set; }
 
         public virtual ICollection<Departments> Departments { get; set; }
+
+        public static Enterprises toEnterprises(EnterprisesDTO enterprise)
+        {
+            return new Enterprises()
+            {
+                CreatedBy = enterprise.CreatedBy,
+                CreatedDate = enterprise.CreatedDate,
+                ModifiedBy = enterprise.ModifiedBy,
+                ModifiedDate = enterprise.ModifiedDate,
+                Status = enterprise.Status,
+                Address = enterprise.Address,
+                Name = enterprise.Name,
+                Phone = enterprise.Phone,
+            };
+        }
     }
 }
