@@ -82,7 +82,12 @@ There is an acceptance criteria that envolves
 
 This project can get running using cloud native principles, so it is necessary to install docker and run
 
-`docker compose run`
+`docker-compose -f stack.yml up`
+
+or just clone the repo:
+ - With node in ClientApp `npm install`
+ - Then run the project in visual studio or with the command `dotner run`
+ - Verify that the database is populated and created using the sql files on the folder documets
 
 With an existing DB I used
 
@@ -105,3 +110,6 @@ Departments
 
 Employees
 ![Employees](Documents/Images/Employees.png)
+
+Backend RestFull
+![Backend](Documents/Images/swagger.png)

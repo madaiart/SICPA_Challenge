@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+# avoiding problems with npm install
+package-lock.json
+
 # Related with .net
 .vs
 obj
