@@ -57,10 +57,10 @@ As a user, I want to list, create, and edit employees, so that I can manage empl
 
 ### Special Needs
 
-- [ ] Intallation guide to get the application running.
-- [ ] Source code review
-- [ ] Share repository
-- [ ] Sreenshot of the running application
+- [X] Intallation guide to get the application running.
+- [X] Source code review
+- [X] Share repository
+- [X] Sreenshot of the running application
 
 ### Optional
 
@@ -91,3 +91,17 @@ With an existing DB I used
 
 # Improvements and Suggestions
 The database model should have an audit table instead of repeating information over each table
+
+# Running Screenshots
+
+Working Project Home
+![Home](Documents/Images/Home.png)
+
+Enterprises
+![Enterprises](Documents/Images/Enterprises.png)
+
+Departments
+![Depatments](Documents/Images/Departments.png)
+
+Employees
+![Employees](Documents/Images/Employees.png)
