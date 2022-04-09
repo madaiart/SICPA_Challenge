@@ -7,25 +7,30 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { EnterprisesComponent } from './enterprises/enterprises.component';
+import { DepartmentComponent } from './departments/departments.component';
+import { EmployeesComponent } from './employees/employees.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    EmployeesComponent,
+    EnterprisesComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' },        
+        {path: 'enterprises', component: EnterprisesComponent},
+        {path: 'departments', component: DepartmentComponent},
+        {path: 'employees', component: EmployeesComponent},
+      //{ path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
   providers: [],

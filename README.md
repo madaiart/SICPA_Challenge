@@ -57,10 +57,10 @@ As a user, I want to list, create, and edit employees, so that I can manage empl
 
 ### Special Needs
 
-- [ ] Intallation guide to get the application running.
-- [ ] Source code review
-- [ ] Share repository
-- [ ] Sreenshot of the running application
+- [X] Intallation guide to get the application running.
+- [X] Source code review
+- [X] Share repository
+- [X] Sreenshot of the running application
 
 ### Optional
 
@@ -83,3 +83,25 @@ There is an acceptance criteria that envolves
 This project can get running using cloud native principles, so it is necessary to install docker and run
 
 `docker compose run`
+
+With an existing DB I used
+
+`Scaffold-DbContext "Server=localhost;Port=1060;Database=sicpa;User=sicpa_developer;Password=sicpa;" -Provider Pomelo.EntityFrameworkCore.MySql -OutputDir Models/Repositories -ContextDir Models/Contexts -Context SICPAContext -Force -Verbose`
+
+
+# Improvements and Suggestions
+The database model should have an audit table instead of repeating information over each table
+
+# Running Screenshots
+
+Working Project Home
+![Home](Documents/Images/Home.png)
+
+Enterprises
+![Enterprises](Documents/Images/Enterprises.png)
+
+Departments
+![Depatments](Documents/Images/Departments.png)
+
+Employees
+![Employees](Documents/Images/Employees.png)

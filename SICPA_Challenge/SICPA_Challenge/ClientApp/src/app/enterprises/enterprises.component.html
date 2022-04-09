@@ -1,0 +1,49 @@
+<h1 id="tableLabel">Enterprises</h1>
+<hr />
+<p *ngIf="!enterprises"><em>Loading...</em></p>
+
+<div class="row">
+  <div class="col">
+    <label>This is the complete list of enterprices</label>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary">Add enterprise</button>
+  </div>
+</div>
+<br />
+<table
+  class="table table-striped"
+  aria-labelledby="tableLabel"
+  *ngIf="enterprises"
+>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>id</th>
+      <th>created By</th>
+      <th>created Date</th>
+      <th>modified By</th>
+      <th>modified Date</th>
+      <th>status</th>
+      <th>address</th>
+      <th>name</th>
+      <th>phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let enterprise of enterprises">
+      <td>Update</td>
+      <td>Delete</td>
+      <td>{{ enterprise.id }}</td>
+      <td>{{ enterprise.createdBy }}</td>
+      <td>{{ enterprise.createdDate }}</td>
+      <td>{{ enterprise.modifiedBy }}</td>
+      <td>{{ enterprise.modifiedDate }}</td>
+      <td>{{ enterprise.status }}</td>
+      <td>{{ enterprise.address }}</td>
+      <td>{{ enterprise.name }}</td>
+      <td>{{ enterprise.phone }}</td>
+    </tr>
+  </tbody>
+</table>

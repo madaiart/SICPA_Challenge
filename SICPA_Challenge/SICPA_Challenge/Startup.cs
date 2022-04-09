@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SICPA_Challenge.Configuration.Installers;
+using System;
+using System.Linq;
 
 namespace SICPA_Challenge
 {
@@ -16,16 +19,16 @@ namespace SICPA_Challenge
         }
 
         public IConfiguration Configuration { get; }
+        readonly string AllowSpecificOrigins = "_SICPAOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            var installers = typeof(Startup).Assembly.ExportedTypes.Where(et => typeof(IInstaller).IsAssignableFrom(et) &&
+         !et.IsInterface && !et.IsAbstract).Select(Activator.CreateInstance).Cast<IInstaller>().ToList();
+
+            installers.ForEach(installer => installer.InstallerServices(services, Configuration));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +44,7 @@ namespace SICPA_Challenge
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSwagger();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -51,12 +55,22 @@ namespace SICPA_Challenge
 
             app.UseRouting();
 
+            app.UseCors(AllowSpecificOrigins);
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SICPA API v1");
+                c.RoutePrefix = "docs";
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+
 
             app.UseSpa(spa =>
             {

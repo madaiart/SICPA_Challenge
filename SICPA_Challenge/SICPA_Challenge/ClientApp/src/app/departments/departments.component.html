@@ -1,0 +1,51 @@
+<h1 id="tableLabel">Enterprises</h1>
+<hr />
+<p *ngIf="!departments"><em>Loading...</em></p>
+
+<div class="row">
+  <div class="col">
+    <label>This is the complete list of departments</label>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary">Add departments</button>
+  </div>
+</div>
+<br />
+<table
+  class="table table-striped"
+  aria-labelledby="tableLabel"
+  *ngIf="departments"
+>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>id</th>
+      <th>created By</th>
+      <th>created date</th>
+      <th>modified By</th>
+      <th>modified Date</th>
+      <th>status</th>
+      <th>description</th>
+      <th>name</th>
+      <th>phone</th>
+      <!-- <th>id_enterprise</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let department of departments">
+      <td>Update</td>
+      <td>Delete</td>
+      <td>{{ department.id }}</td>
+      <td>{{ department.createdBy }}</td>
+      <td>{{ department.createdDate }}</td>
+      <td>{{ department.modifiedBy }}</td>
+      <td>{{ department.modifiedDate }}</td>
+      <td>{{ department.status }}</td>
+      <td>{{ department.description }}</td>
+      <td>{{ department.name }}</td>
+      <td>{{ department.phone }}</td>
+      <!-- <td>id_enterprise</td> -->
+    </tr>
+  </tbody>
+</table>

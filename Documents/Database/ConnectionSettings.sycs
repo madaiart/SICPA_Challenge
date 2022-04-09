@@ -1,0 +1,36 @@
+[Connection 1]
+Name=sicpa
+Host=localhost
+User=root
+StorePassword=1
+Password=D1+bHHx6
+Isencrypted=1
+Port=1060
+Database=
+compressedprotocol=1
+defaulttimeout=1
+waittimeoutvalue=28800
+ObjectbrowserBkcolor=16777215
+ObjectbrowserFgcolor=0
+sqlmode_global=1
+sqlmode_value=
+init_command=
+keep_alive=0
+[Connection 2]
+Name=sicpa_dev
+Host=localhost
+User=sicpa_developer
+StorePassword=1
+Password=LwWbHng=
+Isencrypted=1
+Port=1060
+Database=
+compressedprotocol=1
+defaulttimeout=1
+waittimeoutvalue=28800
+ObjectbrowserBkcolor=16777215
+ObjectbrowserFgcolor=0
+sqlmode_global=1
+sqlmode_value=
+init_command=
+keep_alive=0
