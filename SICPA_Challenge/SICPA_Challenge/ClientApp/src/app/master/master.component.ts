@@ -36,27 +36,27 @@ export class MasterComponent implements OnInit {
       serverSide: true,
       processing: true,
       autoWidth: true,
-      ajax: (dataTablesParameters: any, callback) => {
-        // Call WebAPI to get positions
-        this.apiHttpService
-          .post(
-            this.apiEndpointsService.postPositionsPagedEndpoint(),
-            dataTablesParameters
-          )
-          .subscribe(
-            (resp: DataTablesResponse) => {
-              this.positions = resp.data;
-              callback({
-                recordsTotal: resp.recordsTotal,
-                recordsFiltered: resp.recordsFiltered,
-                data: [],
-              });
-            },
-            (error) => {
-              log.debug(error);
-            }
-          );
-      },
+      // ajax: (dataTablesParameters: any, callback) => {
+      //   // Call WebAPI to get positions
+      //   this.apiHttpService
+      //     .post(
+      //       this.apiEndpointsService.postPositionsPagedEndpoint(),
+      //       dataTablesParameters
+      //     )
+      //     .subscribe(
+      //       (resp: DataTablesResponse) => {
+      //         this.positions = resp.data;
+      //         callback({
+      //           recordsTotal: resp.recordsTotal,
+      //           recordsFiltered: resp.recordsFiltered,
+      //           data: [],
+      //         });
+      //       },
+      //       (error) => {
+      //         log.debug(error);
+      //       }
+      //     );
+      // },
       // Set column title and data field
       columns: [
         {

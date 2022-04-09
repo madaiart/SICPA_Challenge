@@ -1,0 +1,187 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Form</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <!-- HTML form mark up -->
+    <form [formGroup]="entryForm" novalidate>
+      <div class="card">
+        <div class="card-header">
+          <div class="float-left"><h3 class="text-info">Employees</h3></div>
+          <div class="float-right">
+            <!-- Form edit mode New or Edit -->
+            <h5 class="text-warning font-italic">{{ formMode }}</h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-danger" [hidden]="!error">
+            There are wrong inputs, please correct.
+          </div>
+          <div class="form-group">
+            <label for="id">Id</label>
+            <label class="d-block">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="id"
+                autocomplete="id"
+                [placeholder]="'Auto Assigned Id'"
+                readonly
+              />
+              <span hidden>Id</span>
+              <small
+                [hidden]="
+                  entryForm.controls.id.valid || entryForm.controls.id.untouched
+                "
+                class="text-danger"
+              >
+                Id is required
+              </small>
+            </label>
+
+            <label for="nameEnterprise">Name</label>
+            <label class="d-block">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nameEnterprise"
+                autocomplete="nameEnterprise"
+                [placeholder]="'Enter a nameEnterprise here'"
+                required
+              />
+              <span hidden>NameEnterprise</span>
+              <small
+                [hidden]="
+                  entryForm.controls.nameEnterprise.valid ||
+                  entryForm.controls.nameEnterprise.untouched
+                "
+                class="text-danger"
+              >
+                Name is required
+              </small>
+            </label>
+
+            <label for="addressEnterprise">Address</label>
+
+            <label class="d-block">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="addressEnterprise"
+                autocomplete="current-addressEnterprise"
+                [placeholder]="'Enter title here'"
+                required
+              />
+              <span hidden>AddressEnterpise</span>
+              <small
+                [hidden]="
+                  entryForm.controls.addressEnterprise.valid ||
+                  entryForm.controls.addressEnterprise.untouched
+                "
+                class="text-danger"
+              >
+                Address is required
+              </small>
+            </label>
+
+            <label for="phoneEnterprise">Phone</label>
+
+            <label class="d-block">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="phoneEnterprise"
+                autocomplete="current-phoneEnterprise"
+                [placeholder]="'Enter description here'"
+              />
+              <span hidden>PhoneEnterpise</span>
+              <small
+                [hidden]="
+                  entryForm.controls.phoneEnterprise.valid ||
+                  entryForm.controls.phoneEnterprise.untouched
+                "
+                class="text-danger"
+              >
+                Phone is required
+              </small>
+            </label>
+            <label for="statusEnterprise">Status</label>
+
+            <label class="d-block">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="statusEnterprise"
+                autocomplete="current-statusEnterprise"
+                [placeholder]="'Enter salary here'"
+                required
+              />
+              <span hidden>StatusEnterprise</span>
+              <small
+                [hidden]="
+                  entryForm.controls.statusEnterprise.valid ||
+                  entryForm.controls.statusEnterprise.untouched
+                "
+                class="text-danger"
+              >
+                Status is required
+              </small>
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="float-left">
+            <!-- HTML markup for Create button -->
+            <button
+              (click)="onCreate()"
+              class="btn btn-primary w-20"
+              type="submit"
+              [disabled]="entryForm.invalid || !isAddNew"
+              *ngIf="this.isAddNew"
+            >
+              <span><i class="fas fa-plus"></i> Create</span>
+            </button>
+            <!-- HTML markup for Update button -->
+            <button
+              (click)="onUpdate(entryForm)"
+              class="btn btn-primary w-20"
+              type="submit"
+              [disabled]="entryForm.invalid || isAddNew"
+              *ngIf="!this.isAddNew"
+            >
+              <span><i class="fas fa-edit"></i> Update</span>
+            </button>
+            <!-- HTML markup for Delete button -->
+            <button
+              (click)="onDelee()"
+              class="btn btn-danger w-20"
+              type="submit"
+              [disabled]="entryForm.invalid || isAddNew"
+              *ngIf="!this.isAddNew"
+            >
+              <span><i class="fas fa-trash-alt"></i> Delete</span>
+            </button>
+          </div>
+          <div class="float-right">
+            <!-- HTML markup for Back button -->
+            <button
+              (click)="onCancel()"
+              class="btn btn-secondary w-20"
+              type="submit"
+            >
+              <span><i class="fa fa-arrow-left"></i> Cancel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
