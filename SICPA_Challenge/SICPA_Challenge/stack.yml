@@ -15,3 +15,10 @@ services:
       - MYSQL_PASSWORD=An0thrS3crt
       - MYSQL_USER=sicpa_user
       - MYSQL_DATABASE=sicpa_db
+
+  app:
+    image: madaicol/sicpachallenge:v1.0
+    restart: always
+    ports: 
+       - 80:49158
+       - 443:49157
